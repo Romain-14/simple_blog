@@ -1,0 +1,24 @@
+<main id="stories">
+
+    <section>
+        <h2>Toutes mes stories !</h2>
+
+        <% for (const story of stories) {%>
+
+            <a href="/story/<%= story.id %>">
+
+                <article>
+                    
+                    <h3><%= story.storyTitle  %></h3>
+                    <img src="img/<%= story.url %>" alt="">
+                    <p><%= story.content  %></p>
+                    <p><em>écrit par : <%= story.author %> le <%= story.storyDate.toLocaleDateString() %> à <%= story.storyDate.toLocaleTimeString() %></em></p>
+                </article>
+            </a>
+                
+        <% } %>
+
+
+    </section>
+
+</main>

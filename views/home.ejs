@@ -1,0 +1,14 @@
+
+<main id="home">
+    <section>
+        <h2>Voici une selection de mes stories mes petits chatons</h2>
+
+        <% for(const story of stories) { %>
+            <article>
+                <h3><%= story.title %></h3>
+                <p><%= story.content %></p>
+                <p>posté le : <%= story.date.toLocaleDateString() %> à <%= story.date.toLocaleTimeString() %></p>
+            </article>
+        <% } %>
+    </section>
+</main>
