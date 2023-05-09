@@ -1,40 +1,49 @@
 <main id="stories">
-
     <section>
         <h2>Toutes mes stories !</h2>
 
+        <article>
+            <h3><%= story.storyTitle %></h3>
+            <% for(const photo of photos) { %>
+                <img src="/img/<%= photo.url %>" alt="" />
+            <% } %>
+            <p><%= story.content %></p>
+        </article>
 
-            <article>
-                
-                <h3><%= story.storyTitle %></h3>
-                <img src="/img/<%= story.url %>" alt="">
-                <p><%= story.content %></p>
-                
-            </article>
+        <aside>
+            <% for(const com of commentaries) { %>
+            <dl>
+                <dt>
+                    Commentaires de <%= com.user %> le
+                    <em>
+                        <%= com.comDate.toLocaleDateString() %> à <%=
+                        com.comDate.toLocaleTimeString() %>
+                    </em>
+                </dt>
+                <dd><%= com.msg %></dd>
+            </dl>
+            <% } %>
+        </aside>
 
-            <aside>
+        <form action="/comment/send/<%= story.id %>" method="post">
+            <input
+                type="text"
+                name="alias"
+                id="alias"
+                placeholder="alias"
+                aria-placeholder="Entrer votre alias"
+            />
 
-                <% for(const com of commentaries) { %>
-                    <dl>
-                        <dt>Commentaires de <%= com.user %> le <em><%= com.comDate.toLocaleDateString() %> à <%= com.comDate.toLocaleTimeString() %></em></dt>
-                        <dd><%= com.msg %></dd>
-                    </dl>
-                <% } %>
+            <textarea
+                name="msg"
+                id="msg"
+                cols="30"
+                rows="10"
+                placeholder="votre message"
+                aria-placeholder="Entrer votre message"
+            ></textarea>
 
-            </aside>
-
-            <form action="/comment/send/<%= story.id %>" method="post">
-
-                <input type="text" name="alias" id="alias" placeholder="alias" aria-placeholder="Entrer votre alias">
-
-                <textarea name="msg" id="msg" cols="30" rows="10" placeholder="votre message" aria-placeholder="Entrer votre message"></textarea>
-
-                <input type="submit" value="send">
-
-            </form>
-
-
-
+            <input type="submit" value="send" />
+        </form>
     </section>
-
 </main>

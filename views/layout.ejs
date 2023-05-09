@@ -14,7 +14,13 @@
             <nav>
                 <a href="/">home</a>
                 <a href="/stories">stories</a>
-                <a href="/admin">admin</a>
+                <% if (isLogged) { %>
+                    <a href="/user/dashboard"><%= alias %>'s dashboard</a>
+                    <a href="/user/entry?sign=out">sign out</a>
+                 
+                <% } else { %>
+                    <a href="/user/entry?sign=in">sign in/up</a>
+                <% } %>
             </nav>
         </header>
 

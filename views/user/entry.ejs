@@ -1,0 +1,28 @@
+
+<% if (sign === "in") { %>
+    <form action="/user/entry/signin" method="post">
+        <input type="email" name="email" id="email" placeholder="email">
+        <input type="password" name="password" id="password" placeholder="password">
+
+        <input type="submit" value="sign in">
+
+    </form>   
+
+    <p>No account yet ? <a href="/user/entry?sign=up">sign up</a></p>
+<% } %>
+
+<% if (sign === "up") { %>
+    <form action="/user/entry/signup" method="post">
+        <input type="text" name="alias" id="alias" placeholder="alias">
+        <input type="email" name="email" id="email" placeholder="email">
+        <input type="password" name="password" id="password" placeholder="password">
+
+        <input type="submit" value="register">
+
+    </form>
+
+<% } %>
+
+<% if (msg) { %>
+    <p><%= msg %></p>
+<% } %>

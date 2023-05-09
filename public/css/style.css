@@ -1,3 +1,12 @@
+body{
+    background-color: #333;
+    color: #fff;
+}
+
+a{
+    color: #fff;
+}
+
 img {
     display: block;
     width: 150px;
@@ -10,3 +19,4 @@ form {
     width: 250px;
     margin: auto;
 }
+
